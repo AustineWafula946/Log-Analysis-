@@ -1,0 +1,25 @@
+LOG ANALYSIS PROJECT~ SPLUNK
+investigating how cctv footage was deleted how the sever was unplugged.
+
+Summary of the CCTV Feed
+
+ ~These logs contain the successful and failed login attempts from various users.
+ ~They contain a few failed login attempts, which looks suspicious.
+ ~They contain information about the CCTV footage being watched and downloaded.
+
+Suspicious IP Address
+ IP address 10.11.105.33 is associated with the suspicious session ID.
+index=web_logs *rij5uu4gt204q0d3eb7jj86okt*
+
+ Timeline of the attack.
+
+ ~The attacker attempt on various accounts.
+ ~There was a successful login after the failed attempts.
+ ~Attacker watched some of the camera streams.
+ ~Multiple camera streams were downloaded.
+ ~Followed by the deletion of the CCTV footage.
+ ~The web logs had an IP address associated with the attacker's session ID.
+ ~We found two other session IDs associated with the IP address.
+ ~We correlated back to the cctv_feed logs to find the traces of any evidence revolving around those session IDs, and found the name of the attacker.
+
+The name of the attacker found in the logs who deleted cctv footage is mmalware.
